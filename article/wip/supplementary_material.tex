@@ -10,7 +10,6 @@
 \usepackage{longtable}
 \usepackage{microtype}
 \usepackage{placeins}
-\usepackage{url}
 
 % All displayed table rows are read from root-level CSV files.
 \newcommand{\csvcomma}{,}
@@ -59,7 +58,7 @@
 
 \section{Scope and Reporting Convention}
 
-This supplement reports detailed results from the completed, article-eligible \texttt{article\_final\_v2} run. The benchmark contains 13 statistical surrogates, eleven nested in-distribution sample totals, five persistent outer folds, and two separately simulated out-of-distribution regimes. Raw and projected predictions always refer to the same observations. No out-of-distribution response entered fitting, preprocessing, hyperparameter selection, or normalization.
+This supplement reports detailed supporting results for the study. The benchmark contains 13 statistical surrogates, eleven nested in-distribution sample totals, five persistent outer folds, and two separately simulated out-of-distribution regimes. Raw and projected predictions always refer to the same observations. No out-of-distribution response entered fitting, preprocessing, hyperparameter selection, or normalization.
 
 For component $j$, the reported component nRMSE is
 \begin{equation}
@@ -97,7 +96,7 @@ Dataset & Attempted & Retained & Acceptance (\%) & Maximum residual & Minimum co
 \end{tabular}
 \end{table}
 
-The in-distribution accuracy export contains $13\times11\times5\times2=1{,}430$ surrogate--size--fold--prediction rows. Component and composite exports contain the corresponding 20-component and four-composite expansions. Tuning completed five 100-trial outer-fold studies and one separate 100-trial full-data study per surrogate, for 7,800 completed trials. The out-of-distribution benchmark used one full-data refit per surrogate and retained 600 mechanistic cases per regime.
+The in-distribution accuracy summary contains $13\times11\times5\times2=1{,}430$ surrogate--size--fold--prediction rows. Component and composite summaries contain the corresponding 20-component and four-composite expansions. Tuning completed five 100-trial outer-fold studies and one separate 100-trial full-data study per surrogate, for 7,800 completed trials. The out-of-distribution benchmark used one full-data refit per surrogate and retained 600 mechanistic cases per regime.
 
 \section{Detailed In-Distribution Predictive Performance}
 
@@ -117,7 +116,7 @@ Table~\ref{tab:s_id_component_accuracy} gives the same standardized error scale 
 \endgroup
 
 \clearpage
-Table~\ref{tab:s_id_composite_accuracy} reports composite-normalized RMSE for COD, TN, TP, and TSS. Projection lowered TN and TP error for every surrogate but increased COD and TSS error for every surrogate. The corresponding physical-unit MSE, RMSE, MAE, bias, maximum absolute error, and $R^2$ remain available in \path{results/article_final_v2/metrics/id_composite_metrics.csv}.
+Table~\ref{tab:s_id_composite_accuracy} reports composite-normalized RMSE for COD, TN, TP, and TSS. Projection lowered TN and TP error for every surrogate but increased COD and TSS error for every surrogate.
 
 \begingroup
 \scriptsize
@@ -153,9 +152,9 @@ Positivity backtracking was activated for 2,489 predictions (0.332\%). Random Fo
 
 \section{Computational Performance}
 
-Fit time includes fold-local preprocessing and surrogate fitting, but excludes Optuna search, artifact serialization, prediction, and projection. Inference timing used a deterministic 512-row batch, five warm-up calls, and 30 measured calls. Values in Table~\ref{tab:s_timing} are five-fold mean $\pm$ sample SD. Search duration is omitted because each fold-specific study was reused at all eleven nested sizes and therefore is not a size-specific training cost.
+Fit time includes fold-local preprocessing and surrogate fitting, but excludes Optuna search, model saving, prediction, and projection. Inference timing used a deterministic 512-row batch, five warm-up calls, and 30 measured calls. Values in Table~\ref{tab:s_timing} are five-fold mean $\pm$ sample SD. Search duration is omitted because each fold-specific study was reused at all eleven nested sizes and therefore is not a size-specific training cost.
 
-Training-time scaling differed much more strongly than inference latency (Figure~\ref{fig:s_training_time_scaling}). At $N=10{,}000$, mean fold-local preprocessing and fitting time ranged from 0.024 s for Multi-task Elastic Net to 56.0 s for SVR. Multi-task Lasso and $k$-NN also fitted in approximately 0.03 s, whereas MLP and TabNet required 20.5 and 24.7 s, CatBoost 33.3 s, and SVR 56.0 s. SVR showed the steepest growth, from 0.054 s at $N=500$ to 56.0 s at $N=10{,}000$, consistent with the scaling of kernel fitting. CatBoost remained near 31--33 s because its selected boosting work and fixed overhead dominated the change in row count. These fit times exclude the separate 100-trial hyperparameter searches and surrogate serialization; they therefore describe refitting cost once settings have been selected. Complete values are reported in Table~\ref{tab:s_timing}.
+Training-time scaling differed much more strongly than inference latency (Figure~\ref{fig:s_training_time_scaling}). At $N=10{,}000$, mean fold-local preprocessing and fitting time ranged from 0.024 s for Multi-task Elastic Net to 56.0 s for SVR. Multi-task Lasso and $k$-NN also fitted in approximately 0.03 s, whereas MLP and TabNet required 20.5 and 24.7 s, CatBoost 33.3 s, and SVR 56.0 s. SVR showed the steepest growth, from 0.054 s at $N=500$ to 56.0 s at $N=10{,}000$, consistent with the scaling of kernel fitting. CatBoost remained near 31--33 s because its selected boosting work and fixed overhead dominated the change in row count. These fit times exclude the separate 100-trial hyperparameter searches and saving of fitted surrogates; they therefore describe refitting cost once settings have been selected. Complete values are reported in Table~\ref{tab:s_timing}.
 
 The timing results sharpen the accuracy findings. MLP delivered the best full-size accuracy with moderate fitting time, while CatBoost and SVR were slower to refit under the selected settings. The multi-task linear surrogates were extremely fast and benefited from projection, but their final nRMSE remained higher than the nonlinear alternatives. Thus, projection does not remove the need to choose a surrogate appropriate to the desired accuracy--training-cost tradeoff; it adds a common feasibility layer after that choice has been made.
 
@@ -254,50 +253,21 @@ The mild and severe out-of-distribution tables use the same 600 cases before and
 
 Every raw out-of-distribution prediction set violated mass conservation. Projection eliminated mass-conservation and non-negativity violations across all 15,600 out-of-distribution surrogate predictions, with maximum projected conservation residual $1.72\times10^{-13}$. Positivity backtracking was activated 29 times under mild and 39 times under severe extrapolation.
 
-\section{Full-Data Hyperparameters and Scientific Provenance}
+\section{Full-Data Hyperparameters}
 
-Table~\ref{tab:s_full_hyperparameters} records the selected settings used for the final full in-distribution refits and out-of-distribution evaluation. These settings were selected in separate four-fold, 100-trial studies using only in-distribution data. Complete outer-fold selections, trial histories, sampler states, and study databases are retained under \path{results/article_final_v2/tuning/}.
+Table~\ref{tab:s_full_hyperparameters} records the selected settings used for the final full in-distribution refits and out-of-distribution evaluation. These settings were selected in separate four-fold, 100-trial studies using only in-distribution data.
 
 \begingroup
 \scriptsize
 \setlength{\tabcolsep}{4pt}
 \csvlongtable
   {p{3.2cm}p{11.5cm}}
-  {Selected settings for the final full-data surrogate refits used in out-of-distribution evaluation. Fixed implementation controls are included because they form part of the accepted fitting contract.}
+  {Selected settings for the final full-data surrogate refits used in out-of-distribution evaluation. Fixed implementation controls are included because they form part of the specified fitting protocol.}
   {tab:s_full_hyperparameters}
   {2}
   {Surrogate & Selected full-data settings}
   {table_s_full_hyperparameters.csv}
   {\csvrowstwo}
 \endgroup
-
-\begin{table}[htbp]
-\centering
-\caption{Scientific-provenance record for the accepted full benchmark.}
-\label{tab:s_provenance}
-\small
-\begin{tabular}{p{4.1cm}p{10.3cm}}
-\toprule
-Record & Accepted value \\
-\midrule
-\csvrowstwo{table_s_provenance.csv}
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Interpretable-Surrogate Coefficient Artifacts and Machine-Readable Results}
-
-The accepted run exports the standardized full-data input--output coefficient matrices for PLS, Multi-task Elastic Net, and Multi-task Lasso. Each artifact contains all 22 named inputs, all 20 component coefficients, the row-wise $L_2$ norm, and an activity indicator at $10^{-12}$. These values describe fitted standardized associations; they are not physical-unit sensitivities, stable feature-selection claims, or causal effects. The files are located under \path{results/article_final_v2/models/interpretability/}.
-
-The numerical source files used for the main text and this supplement are:
-\begin{itemize}
-\item \path{metrics/id_fold_metrics.csv} and \path{metrics/id_fold_summary.csv} for aggregate in-distribution accuracy;
-\item \path{metrics/id_component_metrics.csv} and \path{metrics/id_composite_metrics.csv} for component and composite in-distribution results;
-\item \path{metrics/id_physical_fold.csv} and \path{metrics/id_physical_summary.csv} for mass-conservation, non-negativity, displacement, and backtracking diagnostics;
-\item \path{metrics/timing_fold_summary.csv} and \path{timing/} for fitting and repeated latency measurements;
-\item \path{metrics/ood_metrics.csv}, \path{metrics/ood_component_metrics.csv}, \path{metrics/ood_composite_metrics.csv}, and \path{metrics/ood_physical_summary.csv} for out-of-distribution results; and
-\item \path{predictions/id/} and \path{predictions/ood/} for paired sample-level raw and projected predictions.
-\end{itemize}
-All paths above are relative to \path{results/article_final_v2/}. Presentation CSVs and final PDF figures are retained beside the two article source files in \path{article/wip/}; result-derived assets are reproducible with \path{scripts/build_manuscript_revision_assets.py} and \path{scripts/build_component_nonnegativity_heatmap.py}.
 
 \end{document}
