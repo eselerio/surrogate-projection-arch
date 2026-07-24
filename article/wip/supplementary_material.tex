@@ -91,7 +91,7 @@ The surrogate roster comprised XGBoost, LightGBM, CatBoost, AdaBoost, Random For
 \toprule
 Dataset & Attempted & Retained & Acceptance (\%) & Maximum residual & Minimum component \\
 \midrule
-\csvrowssix{table_s_dataset_validation.csv}
+\csvrowssix{supp_table_s_dataset_validation.csv}
 \bottomrule
 \end{tabular}
 \end{table}
@@ -111,7 +111,7 @@ Table~\ref{tab:s_id_component_accuracy} gives the same standardized error scale 
   {tab:s_id_component_accuracy}
   {8}
   {Component & Unit & Surrogate & Raw nRMSE$_j$ & Projected nRMSE$_j$ & $\Delta$nRMSE$_j$ & Raw $R^2_j$ & Projected $R^2_j$}
-  {table_s_id_component_accuracy.csv}
+  {supp_table_s_id_component_accuracy.csv}
   {\csvrowseight}
 \endgroup
 
@@ -127,7 +127,7 @@ Table~\ref{tab:s_id_composite_accuracy} reports composite-normalized RMSE for CO
   {tab:s_id_composite_accuracy}
   {7}
   {Composite & Surrogate & Raw nRMSE$_q$ & Projected nRMSE$_q$ & $\Delta$nRMSE$_q$ & Raw $R^2$ & Projected $R^2$}
-  {table_s_id_composite_accuracy.csv}
+  {supp_table_s_id_composite_accuracy.csv}
   {\csvrowsseven}
 \endgroup
 
@@ -146,7 +146,7 @@ Positivity backtracking was activated for 2,489 predictions (0.332\%). Random Fo
   {tab:s_backtracking}
   {5}
   {Surrogate & All-size count & All-size rate (\%) & Full-size rate (\%) & Full-size mean $d_c^{\mathrm{std}}$}
-  {table_s_backtracking.csv}
+  {supp_table_s_backtracking.csv}
   {\csvrowsfive}
 \endgroup
 
@@ -160,7 +160,7 @@ The timing results sharpen the accuracy findings. MLP delivered the best full-si
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.96\textwidth]{figure_training_time_scaling.pdf}
+\includegraphics[width=0.96\textwidth]{supp_figure_training_time_scaling.pdf}
 \caption{In-distribution preprocessing and surrogate-fitting time across nested sample totals. Lines show five-fold means, shaded regions show $\pm$ one sample SD, and the vertical axis is logarithmic. Hyperparameter-search time is excluded.}
 \label{fig:s_training_time_scaling}
 \end{figure}
@@ -169,7 +169,7 @@ At $N=10{,}000$, complete 20-component raw inference ranged from approximately 0
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.94\textwidth]{figure_inference_latency.pdf}
+\includegraphics[width=0.94\textwidth]{supp_figure_inference_latency.pdf}
 \caption{Complete 20-component raw surrogate-inference latency at $N=10{,}000$. Bars show the five-fold mean and error bars show $\pm$ one sample SD of fold medians.}
 \label{fig:s_inference_latency}
 \end{figure}
@@ -185,7 +185,7 @@ At $N=10{,}000$, complete 20-component raw inference ranged from approximately 0
   {tab:s_timing}
   {6}
   {Surrogate & Fit at $N=500$ (s) & Fit at $N=10{,}000$ (s) & Fit-time ratio & Raw latency & Projection latency}
-  {table_s_timing.csv}
+  {supp_table_s_timing.csv}
   {\csvrowssix}
 \endgroup
 
@@ -204,7 +204,7 @@ The mild and severe out-of-distribution tables use the same 600 cases before and
   {tab:s_ood_mild_component_accuracy}
   {8}
   {Component & Unit & Surrogate & Raw nRMSE$_j$ & Projected nRMSE$_j$ & $\Delta$nRMSE$_j$ & Raw $R^2_j$ & Projected $R^2_j$}
-  {table_s_ood_mild_component_accuracy.csv}
+  {supp_table_s_ood_mild_component_accuracy.csv}
   {\csvrowseight}
 \endgroup
 
@@ -218,7 +218,7 @@ The mild and severe out-of-distribution tables use the same 600 cases before and
   {tab:s_ood_mild_composite_accuracy}
   {7}
   {Composite & Surrogate & Raw nRMSE$_q$ & Projected nRMSE$_q$ & $\Delta$nRMSE$_q$ & Raw $R^2$ & Projected $R^2$}
-  {table_s_ood_mild_composite_accuracy.csv}
+  {supp_table_s_ood_mild_composite_accuracy.csv}
   {\csvrowsseven}
 \endgroup
 
@@ -233,7 +233,7 @@ The mild and severe out-of-distribution tables use the same 600 cases before and
   {tab:s_ood_severe_component_accuracy}
   {8}
   {Component & Unit & Surrogate & Raw nRMSE$_j$ & Projected nRMSE$_j$ & $\Delta$nRMSE$_j$ & Raw $R^2_j$ & Projected $R^2_j$}
-  {table_s_ood_severe_component_accuracy.csv}
+  {supp_table_s_ood_severe_component_accuracy.csv}
   {\csvrowseight}
 \endgroup
 
@@ -247,7 +247,7 @@ The mild and severe out-of-distribution tables use the same 600 cases before and
   {tab:s_ood_severe_composite_accuracy}
   {7}
   {Composite & Surrogate & Raw nRMSE$_q$ & Projected nRMSE$_q$ & $\Delta$nRMSE$_q$ & Raw $R^2$ & Projected $R^2$}
-  {table_s_ood_severe_composite_accuracy.csv}
+  {supp_table_s_ood_severe_composite_accuracy.csv}
   {\csvrowsseven}
 \endgroup
 
@@ -266,7 +266,7 @@ Table~\ref{tab:s_full_hyperparameters} records the selected settings used for th
   {tab:s_full_hyperparameters}
   {2}
   {Surrogate & Selected full-data settings}
-  {table_s_full_hyperparameters.csv}
+  {supp_table_s_full_hyperparameters.csv}
   {\csvrowstwo}
 \endgroup
 
