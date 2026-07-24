@@ -5,7 +5,7 @@ $c\in\mathbb{R}^{F}$,Generic ASM component-concentration vector
 $c_{in\csvcomma{}i}\csvcomma{}c_{out\csvcomma{}i}\in\mathbb{R}^{F}$,Influent and true steady-state effluent vectors for sample $i$
 $c_{raw\csvcomma{}i}^{(m)}\csvcomma{}c_{+\csvcomma{}i}^{(m)}$,Raw prediction and positive provisional target
 $c_{cand\csvcomma{}i}^{(m)}\csvcomma{}\tilde c_i^{(m)}$,Conservative candidate and final projected prediction
-$D_i$,"Hydraulic dilution rate\csvcomma{} $24\,\mathrm{h\,d}^{-1}/\mathrm{HRT}_i$"
+$D_i$,Hydraulic dilution rate\csvcomma{} $24\,\mathrm{h\,d}^{-1}/\mathrm{HRT}_i$
 $d_{c\csvcomma{}i}^{\mathrm{std}\csvcomma{}(m)}(\mathcal{T})$,Projection displacement standardized using reference set $\mathcal{T}$
 $e_{S_O}\in\mathbb{R}^{F}$,Unit vector selecting the dissolved-oxygen component
 $F\csvcomma{}K\csvcomma{}P$,Numbers of ASM components\csvcomma{} invariants\csvcomma{} and processes; 20\csvcomma{} 5\csvcomma{} and 28
