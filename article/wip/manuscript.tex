@@ -71,7 +71,7 @@ Fast statistical surrogates are useful in activated sludge modeling only if thei
 \begin{graphicalabstract}
 \centering
 % External PDF asset kept beside this source file.
-\includegraphics[width=\textwidth]{graphical_abstract.pdf}
+\includegraphics[width=\textwidth]{main_graphical_abstract.pdf}
 \end{graphicalabstract}
 
 \begin{highlights}
@@ -92,7 +92,7 @@ machine learning \sep wastewater treatment \sep activated sludge model \sep stat
 \noindent Only nonstandard mathematical variables, sets, and operators are listed; process abbreviations and component names are defined in the text.
 \begin{tabbing}
 \hspace{4.4cm} \= \kill
-\csvreader[head to column names,late after line=\\]{nomenclature.csv}{}{\colA \> \colB}
+\csvreader[head to column names,late after line=\\]{main_nomenclature.csv}{}{\colA \> \colB}
 \end{tabbing}
 
 \section{Introduction}
@@ -115,7 +115,7 @@ The methodological process was designed to test physical admissibility separatel
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[width=\textwidth]{figure_evaluation_workflow.pdf}
+\includegraphics[width=\textwidth]{main_figure_evaluation_workflow.pdf}
 \caption{Evaluation workflow linking nested in-distribution cross-validation, paired raw/projected scoring, and external out-of-distribution validation.}
 \label{fig:evaluation_workflow}
 \end{figure}
@@ -143,7 +143,7 @@ The simulation design sampled 22 continuous inputs: hydraulic retention time (HR
 \hline
 Variable & Category & Range & Unit \\
 \hline
-\csvrowsfour{table_simulation_domain.csv}
+\csvrowsfour{main_table_simulation_domain.csv}
 \hline
 \end{tabular}
 \end{table}
@@ -159,7 +159,7 @@ For each sampled input, nonlinear least squares solved the steady-state balance 
 \hline
 Setting & Value or rule \\
 \hline
-\csvrowstwo{table_simulation_settings.csv}
+\csvrowstwo{main_table_simulation_settings.csv}
 \hline
 \end{tabular}
 \end{table}
@@ -216,11 +216,11 @@ Table~\ref{tab:invariant_matrix} reports the numerical basis in the fixed target
 \toprule
  & $S_O$ & $S_F$ & $S_A$ & $S_{NH4}$ & $S_{NO2}$ & $S_{NO3}$ & $S_{N2}$ & $S_{PO4}$ & $S_I$ & $S_{ALK}$ \\
 \midrule
-\csvrowseleven{table_invariant_matrix_dissolved.csv}
+\csvrowseleven{main_table_invariant_matrix_dissolved.csv}
 \midrule
  & $X_I$ & $X_S$ & $X_H$ & $X_{PAO}$ & $X_{PP}$ & $X_{PHA}$ & $X_{AOB}$ & $X_{NOB}$ & $X_{MeP}$ & $X_{MeOH}$ \\
 \midrule
-\csvrowseleven{table_invariant_matrix_particulate.csv}
+\csvrowseleven{main_table_invariant_matrix_particulate.csv}
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -325,7 +325,7 @@ Tree inputs need no z-scoring because positive affine transformations preserve t
 \hline
 Protocol item & Rule used & Data involved & Leakage-control role \\
 \hline
-\csvrowsfour{table_data_protocol.csv}
+\csvrowsfour{main_table_data_protocol.csv}
 \hline
 \end{tabular}
 \end{table}
@@ -350,7 +350,7 @@ For reporting, ``Interpretable surrogates'' denotes PLS, Multi-task Elastic Net,
 \hline
 Surrogate & Benchmark category & Multi-output handling & Scaling & Selection \\
 \hline
-\csvrowsfive{table_surrogate_models.csv}
+\csvrowsfive{main_table_surrogate_models.csv}
 \hline
 \end{tabular}}
 \end{table}
@@ -366,7 +366,7 @@ Hyperparameter optimization for every benchmark surrogate used a seeded tree-str
 \hline
 Setting & Value \\
 \hline
-\csvrowstwo{table_optuna_design.csv}
+\csvrowstwo{main_table_optuna_design.csv}
 \hline
 \end{tabular}
 \end{table}
@@ -383,7 +383,7 @@ Table~\ref{tab:model_hyperparameters} records the hyperparameter search domains 
 \hline
 Surrogate & Settings \\
 \hline
-\csvrowstwo{table_model_hyperparameters.csv}
+\csvrowstwo{main_table_model_hyperparameters.csv}
 \hline
 \end{tabular}
 \end{table}
@@ -404,7 +404,7 @@ The same evaluation workflow is applied to every surrogate so that raw and proje
 \hline
 Step & Operation & Data used & Reproducibility and leakage-control note \\
 \hline
-\csvrowsfour{table_modeling_workflow.csv}
+\csvrowsfour{main_table_modeling_workflow.csv}
 \hline
 \end{tabular}
 \end{table}
@@ -479,7 +479,7 @@ Wall-clock timing is partitioned into preprocessing and surrogate fitting, raw b
 \hline
 Metric & Definition & Computed on & Interpretation \\
 \hline
-\csvrowsfour{table_evaluation_metrics.csv}
+\csvrowsfour{main_table_evaluation_metrics.csv}
 \hline
 \end{tabular}
 \end{table}
@@ -507,7 +507,7 @@ The nMSE, nRMSE, nMAE, $R^2$, and violation-frequency equations above then apply
 \toprule
 Input & In-distribution interval & Mild extrapolation interval & Severe extrapolation interval & Unit \\
 \midrule
-\csvrowsfive{table_ood_domain.csv}
+\csvrowsfive{main_table_ood_domain.csv}
 \bottomrule
 \end{tabular}
 \end{table}
@@ -536,7 +536,7 @@ These checks establish that the reference states already occupied the intended p
 \toprule
 Dataset & Attempted & Retained & Acceptance (\%) & Maximum invariant residual & Minimum component \\
 \midrule
-\csvrowssix{table_dataset_validation.csv}
+\csvrowssix{main_table_dataset_validation.csv}
 \bottomrule
 \end{tabular}
 \end{table}
@@ -557,7 +557,7 @@ Projection changed these predictive errors in a way that depended on the structu
 \toprule
 Surrogate & Raw nRMSE & Projected nRMSE & $\Delta$ nRMSE & Raw macro-$R^2$ & Projected macro-$R^2$ \\
 \midrule
-\csvrowssix{table_full_size_accuracy.csv}
+\csvrowssix{main_table_full_size_accuracy.csv}
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -573,7 +573,7 @@ The TabNet surrogate was the clearest exception to an apparent full-size plateau
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.96\textwidth]{figure_learning_curves.pdf}
+\includegraphics[width=0.96\textwidth]{main_figure_learning_curves.pdf}
 \caption{In-distribution learning curves for raw predictions. Lines show five-fold mean nRMSE and shaded regions show $\pm$ one sample SD across folds.}
 \label{fig:learning_curves}
 \end{figure}
@@ -595,7 +595,7 @@ Projection eliminated both mass-conservation and non-negativity violations in al
 \toprule
 Surrogate & Raw mass violation (\%) & Raw non-negativity violation (\%) & Maximum projected $v_{mc}$ & Backtracking (\%) & Mean $d_c^{\mathrm{std}}$ \\
 \midrule
-\csvrowssix{table_projection_physics.csv}
+\csvrowssix{main_table_projection_physics.csv}
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -607,14 +607,14 @@ The rising non-negativity incidence for some high-accuracy surrogates is not evi
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.96\textwidth]{figure_violation_rates_by_sample_size.pdf}
+\includegraphics[width=0.96\textwidth]{main_figure_violation_rates_by_sample_size.pdf}
 \caption{In-distribution mass-conservation and non-negativity violation rates across nested sample totals. Curves are five-fold means. All 13 raw mass-conservation curves coincide at 100\%, all projected mass-conservation and non-negativity curves coincide at 0\%, and the remaining curves show raw non-negativity violations.}
 \label{fig:violation_trajectories}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.98\textwidth]{figure_component_nonnegativity_violations_id.pdf}
+\includegraphics[width=0.98\textwidth]{main_figure_component_nonnegativity_violations_id.pdf}
 \caption{Component-level raw non-negativity violations at $N=10{,}000$. Rows are surrogates and columns are effluent components. Each cell is the five-fold mean percentage of validation predictions in which that component was below the declared non-negativity tolerance. Projected values are not shown because every projected component had a 0\% violation rate.}
 \label{fig:component_nonnegativity_violations}
 \end{figure}
@@ -627,7 +627,7 @@ SVR changed from projection costs at $N=1{,}450$--4,300 to benefits at every siz
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.94\textwidth]{figure_projection_change.pdf}
+\includegraphics[width=0.94\textwidth]{main_figure_projection_change.pdf}
 \caption{Change in in-distribution nRMSE after projection for every surrogate and nested sample total. Each cell is projected minus raw five-fold mean nRMSE; negative values indicate lower error after projection.}
 \label{fig:projection_change}
 \end{figure}
@@ -638,7 +638,7 @@ The two largest recurring losses have different explanations. Effluent $S_F$ was
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.98\textwidth]{figure_component_projection_effects_id.pdf}
+\includegraphics[width=0.98\textwidth]{main_figure_component_projection_effects_id.pdf}
 \caption{Component-level change in in-distribution nRMSE at $N=10{,}000$. Each cell is the mean of five paired fold differences (projected minus raw); blue denotes lower error and red denotes higher error. The symmetric-log color scale displays small and large changes without clipping.}
 \label{fig:id_component_projection_effects}
 \end{figure}
@@ -661,7 +661,7 @@ The larger out-of-distribution benefit is consistent with the interpretation dev
 \toprule
 Surrogate & Mild raw & Mild projected & Severe raw & Severe projected \\
 \midrule
-\csvrowsfive{table_ood_accuracy.csv}
+\csvrowsfive{main_table_ood_accuracy.csv}
 \bottomrule
 \end{tabular}
 \end{table}
@@ -671,7 +671,7 @@ Aggregate improvements again coexisted with opposing component effects (Figure~\
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.98\textwidth]{figure_ood_component_projection_effects.pdf}
+\includegraphics[width=0.98\textwidth]{main_figure_ood_component_projection_effects.pdf}
 \caption{Component-level change in nRMSE after projection for mild and severe extrapolation. Each cell uses the same 600 mechanistic cases before and after projection; blue denotes lower error and red denotes higher error. The common symmetric-log color scale permits direct comparison without clipping.}
 \label{fig:ood_component_projection_effects}
 \end{figure}
