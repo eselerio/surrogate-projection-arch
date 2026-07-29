@@ -51,12 +51,6 @@
 Fast statistical surrogates are useful in activated sludge modeling only if their predictions can still be treated as physically possible process states. This study tested whether a model-agnostic post-prediction projection could enforce two non-negotiable requirements--mass conservation and non-negative concentrations--after a surrogate has produced a complete 20-component effluent prediction. The Kircher--Votsmeier conservative projection was transferred to a steady-state activated sludge benchmark and evaluated with 13 surrogates: XGBoost, LightGBM, CatBoost, AdaBoost, Random Forest, Extra Trees, SVR, $k$-NN, PLS, Multi-task Elastic Net, Multi-task Lasso, MLP, and TabNet. These models were tested across eleven training-set sizes, nested in-distribution cross-validation, and two out-of-distribution regimes. Every raw surrogate prediction set violated mass conservation, and several accurate raw surrogates also predicted negative small components. After projection, all $766{,}350$ evaluated predictions conserved mass and remained non-negative, with maximum conservation residuals of $2.06\times10^{-13}$ in-distribution and $1.72\times10^{-13}$ out-of-distribution. Projection often helped accuracy, lowering about three quarters of component-level nRMSE comparisons and 20 of 26 out-of-distribution aggregate comparisons, but it did not improve every aggregate score. The central lesson is practical: physical admissibility and predictive accuracy are separate requirements, and projection supplies the former without retraining the surrogate.
 \end{abstract}
 
-\begin{graphicalabstract}
-\centering
-% External PNG asset kept beside this source file.
-\includegraphics[width=\textwidth]{main_graphical_abstract.png}
-\end{graphicalabstract}
-
 \begin{highlights}
 \item Fast activated sludge surrogates can be accurate but physically inadmissible.
 \item Thirteen surrogates were tested across data scarcity and extrapolation regimes.
