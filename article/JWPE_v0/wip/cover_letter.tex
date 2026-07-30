@@ -1,0 +1,43 @@
+\documentclass[11pt]{letter}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{parskip}
+\setlength{\emergencystretch}{2em}
+
+\signature{Egberto F. Selerio Jr.\\
+Engineering Research and Development for Technology\\
+University of San Carlos, Philippines\\
+\texttt{egbertoselerio@gmail.com}}
+
+\address{Egberto F. Selerio Jr.\\
+Engineering Research and Development for Technology\\
+University of San Carlos, Philippines}
+
+\date{\today}
+
+\begin{document}
+
+\begin{letter}{Professors Alicia An, Ludovic (Ludo) Dum\'ee, and Wenjing (Angela) Zhang\\
+Co-Editors in Chief\\
+\textit{Journal of Water Process Engineering}}
+
+\opening{Dear Professors An, Dum\'ee, and Zhang,}
+
+Please consider our original research article, ``Enforcement of Mass Conservation and Non-Negativity in Statistical Surrogates of the Activated Sludge Process,'' for publication in the \textit{Journal of Water Process Engineering}.
+
+The manuscript fits the journal's focus on modeling, optimization, and control of wastewater treatment processes. It addresses a practical weakness in data-driven activated sludge modeling: a fast surrogate prediction may still be unusable if it violates mass conservation or produces negative component concentrations. Because such effluent states can be interpreted directly or passed to screening, optimization, and decision-support workflows, physical admissibility is an engineering requirement rather than a cosmetic numerical detail.
+
+We transfer the positivity-preserving conservative projection of Kircher and Votsmeier to steady-state ASM2d-TSN effluent prediction and evaluate it on complete 20-component activated sludge states. The benchmark covers 13 statistical surrogates, eleven in-distribution training-set sizes, nested cross-validation, and two separately simulated out-of-distribution regimes. Every raw surrogate prediction set violated mass conservation, and several accurate raw surrogates also produced negative small-component concentrations. After projection, all $766{,}350$ evaluated predictions conserved mass and remained non-negative, with maximum projected conservation residuals of $2.06\times10^{-13}$ in-distribution and $1.72\times10^{-13}$ out-of-distribution.
+
+The main contribution is a reusable feasibility layer for wastewater-process surrogates rather than another accuracy ranking alone. Projection improved most component-level nRMSE comparisons and 20 of 26 out-of-distribution aggregate comparisons, but its aggregate in-distribution effect remained surrogate-dependent. The study therefore gives JWPE readers a clear evaluation logic: choose a surrogate for the required accuracy and computational cost, then separately verify that its predicted effluent state is physically admissible enough for interpretation, optimization, or control.
+
+The manuscript is original, has not been published previously, and is not under consideration elsewhere. The authors have approved its submission and declare no competing interests. Thank you for your consideration.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}
