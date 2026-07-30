@@ -1,0 +1,41 @@
+\documentclass[11pt]{letter}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{parskip}
+\setlength{\emergencystretch}{2em}
+
+\signature{Egberto F. Selerio Jr.\\
+Engineering Research and Development for Technology\\
+University of San Carlos, Philippines\\
+\texttt{egbertoselerio@gmail.com}}
+
+\date{\today}
+
+\begin{document}
+
+\begin{letter}{Danlu Guo, Xifu Sun, and Paul Whitehead\\
+Guest Editors\\
+``Advances and Good Practices in Water Quality Modelling\\
+for Environmental Decision Support''\\
+\textit{Environmental Modelling \& Software}}
+
+\opening{Dear Guest Editors,}
+
+Please consider my original research article, ``Enforcement of Mass Conservation and Non-Negativity on Water Quality Predictions of Activated Sludge Surrogates,'' for the Special Issue ``Advances and Good Practices in Water Quality Modelling for Environmental Decision Support'' in \textit{Environmental Modelling \& Software}.
+
+The study addresses the Special Issue's emphasis on trustworthy, well-evaluated machine learning and transparent water quality modelling. Activated sludge surrogates can be accurate in aggregate yet violate mass conservation or produce negative component concentrations, reducing confidence in predictions passed to environmental decision-support analyses.
+
+I adapt the positivity-preserving conservative projection of Kircher and Votsmeier to complete 20-component ASM2d-TSN effluent predictions. The reproducible benchmark compares 13 statistical surrogates across eleven training-set sizes, nested cross-validation, and two separately simulated extrapolation regimes. Every raw surrogate set violated mass conservation, and several accurate surrogates also produced negative concentrations. After projection, all $766{,}350$ predictions conserved mass and remained non-negative. Projection improved most component-level comparisons and 20 of 26 out-of-distribution aggregate comparisons, while its aggregate in-distribution effect remained surrogate-dependent.
+
+The model-agnostic workflow requires no retraining and reports prediction error alongside constraint compliance, making the effect of projection explicit without implying that enforcement necessarily improves accuracy. It offers a transparent way to strengthen activated sludge water quality predictions used in screening and environmental decision support.
+
+The manuscript is original, has not been published previously, and is not under consideration elsewhere. I have approved its submission and declare no competing interests. Thank you for your consideration.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}
